@@ -1,0 +1,97 @@
+<!-- templates/results.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>採点結果 - 問題 {{ problem_id }}</title>
+  <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+      .result { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
+      /* 基本のグレード表示 */
+      .grade { font-weight: bold; }
+      /* AC: 緑色、WA: オレンジ色 */
+      .grade.ac { color: green; }
+      .grade.wa { color: orange; }
+      /* 折り畳み用のスタイル。collapsed クラスが付いていると max-height で表示を制限 */
+      pre.collapsible.collapsed {
+          max-height: 180px; /* 約10行分 */
+          overflow: hidden;
+          position: relative;
+      }
+      pre.collapsible.collapsed::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 30px;
+          background: linear-gradient(to bottom, rgba(255,255,255,0), #fff);
+      }
+      .toggle-button {
+          margin-top: 5px;
+          font-size: 0.9em;
+      }
+  </style>
+</head>
+<body>
+  <h1>採点結果 - 問題 {{ problem_id }}</h1>
+  {% for result in results %}
+    <div class="result">
+      <p>
+        {% if result.grade == "AC" %}
+          <span class="grade ac">結果: AC</span>
+        {% elif result.grade == "WA" %}
+          <span class="grade wa">結果: WA</span>
+        {% else %}
+          <span class="grade">{{ result.grade }}</span>
+        {% endif %}
+      </p>
+      <p><strong>入力:</strong><br>
+         <pre class="collapsible">{{ result.input }}</pre>
+      </p>
+      <p><strong>期待される出力:</strong><br>
+         <pre class="collapsible">{{ result.expected }}</pre>
+      </p>
+      <p><strong>実際の出力:</strong><br>
+         <pre class="collapsible">{{ result.actual }}</pre>
+      </p>
+      {% if result.error %}
+        <p><strong>エラー:</strong> {{ result.error }}</p>
+      {% endif %}
+      <p><strong>詳細:</strong> {{ result.details }}</p>
+    </div>
+  {% endfor %}
+
+  <br>
+  <a href="{{ url_for('problem', problem_id=problem_id) }}">再提出する</a>
+  <br>
+  <a href="{{ url_for('problems') }}">他の問題を見る</a>
+
+  <script>
+    // ページ読み込み時に、各 pre.collapsible 要素の行数を判定して
+    // 10行以上なら collapsed クラスを付与し、トグルボタンを追加する
+    document.addEventListener("DOMContentLoaded", function(){
+      var pres = document.querySelectorAll("pre.collapsible");
+      pres.forEach(function(pre) {
+          var lines = pre.textContent.split("\n").length;
+          if (lines > 10) {
+              pre.classList.add("collapsed");
+              var btn = document.createElement("button");
+              btn.textContent = "Show More";
+              btn.className = "toggle-button";
+              btn.addEventListener("click", function() {
+                  if (pre.classList.contains("collapsed")) {
+                      pre.classList.remove("collapsed");
+                      btn.textContent = "Show Less";
+                  } else {
+                      pre.classList.add("collapsed");
+                      btn.textContent = "Show More";
+                  }
+              });
+              pre.parentNode.insertBefore(btn, pre.nextSibling);
+          }
+      });
+    });
+  </script>
+</body>
+</html>

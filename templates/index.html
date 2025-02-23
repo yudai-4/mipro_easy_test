@@ -1,0 +1,22 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>課題ディレクトリの設定</title>
+    <style>
+      body { font-family: Arial, sans-serif; }
+      .container { max-width: 500px; margin: auto; padding: 20px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>課題ディレクトリの設定</h1>
+    <form action="{{ url_for('index') }}" method="post">
+        <label>課題ディレクトリパス:</label><br>
+        <input type="text" name="assignment_dir" required><br><br>
+        <button type="submit">設定する</button>
+    </form>
+</div>
+</body>
+</html>

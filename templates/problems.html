@@ -1,0 +1,25 @@
+<!-- templates/problems.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>問題一覧</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 500px; margin: auto; padding: 20px; }
+        .problem { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>問題一覧</h1>
+    <ul>
+        {% for pid in test_cases.keys() %}
+           <li class="problem"><a href="{{ url_for('problem', problem_id=pid) }}">問題 {{ pid }}</a></li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{{ url_for('index') }}">課題ディレクトリを変更する</a>
+</div>
+</body>
+</html>
