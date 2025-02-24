@@ -7,7 +7,7 @@
 ## インストールと起動方法
 1. GitHubから本リポジトリをクローンしてください。
    ```bash
-   git clone https://github.com/yourusername/programming_test_system.git
+   git clone https://github.com/yudai-4/mipro_easy_test
    cd programming_test_system
    python3 app.py
 ## 使い方
@@ -22,7 +22,7 @@ The problem list is extracted from file names within a folder (e.g., “1-1”) 
 ## Install and Open
 1. Clone this repository from Github
    ```bash
-   git clone https://github.com/yourusername/programming_test_system.git
+   git clone https://github.com/yudai-4/mipro_easy_test
    cd programming_test_system
    python3 app.py
 ## Usage
