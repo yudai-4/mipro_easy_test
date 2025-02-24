@@ -4,7 +4,6 @@ import requests
 def compile_and_run(code, stdin, compiler="gcc-13.2.0-c", options="-march=native -std=c11 -O2", timeout=20):
     """
     Wandbox の API を利用して C言語のソースコードをコンパイル・実行する。
-    入力（stdin）はテストケースの内容を渡します。
     """
     url = "https://wandbox.org/api/compile.json"
     payload = {

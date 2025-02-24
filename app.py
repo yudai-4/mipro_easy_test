@@ -6,7 +6,6 @@ from wandbox_client import compile_and_run
 from grader import compare_outputs
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'  # セッション利用のためのシークレットキー
 
 @app.route('/', methods=['GET', 'POST'])
 def index():

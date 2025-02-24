@@ -2,7 +2,7 @@
 import re
 
 def normalize_whitespace(s):
-    """余分な空白（改行、タブ、連続スペース）を正規化して１つのスペースに置換"""
+    """余分な空白１つのスペースに置換"""
     return " ".join(s.split())
 
 def is_number(s):
@@ -15,7 +15,8 @@ def is_number(s):
 def compare_outputs(expected, actual, tolerance=1e-6):
     """
     expected と actual の出力文字列をトークン毎に比較する。
-    数値トークンは相対誤差 tolerance を許容し、文字列は正規化後に完全一致で比較する。
+    数値トークンは相対誤差 tolerance を許容
+    文字列は正規化後に完全一致で比較する。
     """
     expected_norm = normalize_whitespace(expected)
     actual_norm = normalize_whitespace(actual)
