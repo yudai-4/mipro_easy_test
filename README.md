@@ -9,7 +9,9 @@
    ```bash
    git clone https://github.com/yourusername/programming_test_system.git
    cd programming_test_system
+   python3 app.py
 ## 使い方
+まず、http://127.0.0.1:5000/にアクセスします。
 sharepointから"公開"フォルダをダウンロードして、解凍し、そのフォルダのパスを取得してください。
 それを貼り付けたらあとはUIに従うとできます。
 
@@ -21,6 +23,8 @@ The problem list is extracted from file names within a folder (e.g., “1-1”) 
    ```bash
    git clone https://github.com/yourusername/programming_test_system.git
    cd programming_test_system
+   python3 app.py
 ## Usage
+First, access http://127.0.0.1:5000/
 Download the “公開” folder from SharePoint, extract it, and obtain the folder path.
 Paste the path into the system, then follow the UI instructions to proceed.
