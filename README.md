@@ -1,8 +1,8 @@
 # mipro_easy_test
 
 ## 概要
-このシステムは、授業のプログラミングテストにおいて、ソースコードの提出・採点や問題一覧の表示を行います。  
-問題一覧は、フォルダ内のファイル名から「1-1」などの問題名を抽出し、AtCoder風のUIで表示します。
+このシステムは、計数工学プログラミング演習において、ソースコードの提出・採点や問題一覧の表示を行います。  
+問題一覧は、フォルダ内のファイル名から「1-1」などの問題名を抽出し、表示しています。
 
 ## インストールと起動方法
 1. GitHubから本リポジトリをクローンしてください。
@@ -29,3 +29,11 @@ The problem list is extracted from file names within a folder (e.g., “1-1”) 
 First, access http://127.0.0.1:5000/
 Download the “公開” folder from SharePoint, extract it, and obtain the folder path.
 Paste the path into the system, then follow the UI instructions to proceed.
+
+### How it Works
+It uses library "Flask" to make html pages interactive.
+Retrieval of problems and in/out data is using dfs approach.
+The code is being judged using Wandbox API.
+The absolute error of 10^-6 is allowed.
+
+
