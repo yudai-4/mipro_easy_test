@@ -6,6 +6,7 @@ from wandbox_client import compile_and_run
 from grader import compare_outputs
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
