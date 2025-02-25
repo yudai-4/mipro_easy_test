@@ -1,36 +1,91 @@
-<!-- templates/results.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <title>採点結果 - 問題 {{ problem_id }}</title>
   <style>
-      body { font-family: Arial, sans-serif; margin: 20px; }
-      .result { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
-      /* 基本のグレード表示 */
-      .grade { font-weight: bold; }
-      /* AC: 緑色、WA: オレンジ色 */
-      .grade.ac { color: green; }
-      .grade.wa { color: orange; }
-      /* 折り畳み用のスタイル。collapsed クラスが付いていると max-height で表示を制限 */
-      pre.collapsible.collapsed {
-          max-height: 180px; /* 約10行分 */
-          overflow: hidden;
-          position: relative;
-      }
-      pre.collapsible.collapsed::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          height: 30px;
-          background: linear-gradient(to bottom, rgba(255,255,255,0), #fff);
-      }
-      .toggle-button {
-          margin-top: 5px;
-          font-size: 0.9em;
-      }
+    /* Apple like design */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #f5f5f7;
+      margin: 20px;
+      color: #1d1d1f;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .result {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .grade {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    .grade.ac {
+      color: green;
+    }
+    .grade.wa {
+      color: orange;
+    }
+
+    pre.collapsible {
+      background: #f0f0f5;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: left;
+      overflow-x: auto;
+      max-height: none;
+      transition: max-height 0.3s ease;
+    }
+
+    pre.collapsible.collapsed {
+      max-height: 180px; /* 約10行分 */
+      overflow: hidden;
+      position: relative;
+    }
+    pre.collapsible.collapsed::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 30px;
+      background: linear-gradient(to bottom, rgba(240,240,245,0), #f0f0f5);
+    }
+
+    .toggle-button {
+      margin-top: 8px;
+      font-size: 0.9em;
+      background: none;
+      border: none;
+      color: #007aff;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    a {
+      color: #007aff;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    a:hover {
+      color: #005ecb;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
@@ -62,10 +117,10 @@
     </div>
   {% endfor %}
 
-  <br>
-  <a href="{{ url_for('problem', problem_id=problem_id) }}">再提出する</a>
-  <br>
-  <a href="{{ url_for('problems') }}">他の問題を見る</a>
+  <div class="links">
+    <p><a href="{{ url_for('problem', problem_id=problem_id) }}">再提出する</a></p>
+    <p><a href="{{ url_for('problems') }}">他の問題を見る</a></p>
+  </div>
 
   <script>
     // ページ読み込み時に、各 pre.collapsible 要素の行数を判定して

@@ -1,22 +1,86 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>課題ディレクトリの設定</title>
-    <style>
-      body { font-family: Arial, sans-serif; }
-      .container { max-width: 500px; margin: auto; padding: 20px; }
-    </style>
+  <meta charset="UTF-8">
+  <title>課題ディレクトリの設定</title>
+  <style>
+    /* Apple like design */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #f5f5f7;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      width: 100%;
+      max-width: 400px;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 30px;
+      color: #1d1d1f;
+    }
+
+    label {
+      font-weight: 500;
+      color: #1d1d1f;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 12px 16px;
+      margin: 12px auto;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+      font-size: 16px;
+      transition: border 0.2s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #007aff;
+    }
+
+    button {
+      width: 80%;
+      padding: 14px;
+      background-color: #007aff;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      margin: 20px auto 0;
+      display: block;
+    }
+
+    button:hover {
+      background-color: #005ecb;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
+  <div class="container">
     <h1>課題ディレクトリの設定</h1>
     <form action="{{ url_for('index') }}" method="post">
-        <label>課題ディレクトリパス:</label><br>
-        <input type="text" name="assignment_dir" required><br><br>
-        <button type="submit">設定する</button>
+      <label for="assignment_dir">課題ディレクトリパス:</label>
+      <input type="text" id="assignment_dir" name="assignment_dir" required>
+      <button type="submit">設定する</button>
     </form>
-</div>
+  </div>
 </body>
 </html>
