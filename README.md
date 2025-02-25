@@ -1,4 +1,5 @@
 # mipro_easy_test
+<img width="1462" alt="Screenshot 2025-02-25 at 10 00 20" src="https://github.com/user-attachments/assets/70403e31-418f-4d22-8bc1-4fd6c0bb1586" />
 
 ## 概要
 このシステムは、計数工学プログラミング演習において、ソースコードの提出・採点や問題一覧の表示を行います。  
