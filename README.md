@@ -8,7 +8,7 @@
 1. GitHubから本リポジトリをクローンしてください。
    ```bash
    git clone https://github.com/yudai-4/mipro_easy_test
-   cd programming_test_system
+   cd mipro_easy_test
    python3 app.py
 ## 使い方
 ターミナルに表示されたリンクにアクセスします。
@@ -22,7 +22,7 @@ The problem list is extracted from file names within a folder (e.g., “1-1”) 
 1. Clone this repository from Github
    ```bash
    git clone https://github.com/yudai-4/mipro_easy_test
-   cd programming_test_system
+   cd mipro_easy_test
    python3 app.py
 ## Usage
 First, access the link that appears on the terminal.
